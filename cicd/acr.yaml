@@ -7,15 +7,14 @@ resources:
       source: mainpipelinetest
       trigger: true
 
-pool:
-  vmImage: 'windows-latest'
-  name: 'default'
 stages:
   - stage: Build
     displayName: Build and Push
     jobs:
       - job: BuildAndPushJob
-        displayName: Build And Push Using template
+        pool:
+          vmImage: 'windows-latest'  # Only here inside job
+        displayName: Build And Push Job
         steps:
           - script: echo "Built and pushed"
             displayName: Build & Push Step
@@ -24,10 +23,8 @@ stages:
     dependsOn: Build
     jobs:
       - job: ConfirmTrigger
+        pool:
+          vmImage: 'windows-latest'
         steps:
           - script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
-            displayName: Confirm ACR Trigger
-           echo "built and pushed"            
-steps:
-- script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
-
+            
