@@ -10,8 +10,8 @@ pr:
     include:
       - dev
       - main
-      - feature/*
-      - fix/*
+    #  - feature/*
+    #  - fix/*
 
 pool:
   name: default
