@@ -3,6 +3,10 @@ resources:
   pipelines:
     - pipeline: mainpipe
       source: mainpipelinetest
+      trigger:
+       branches:
+        exclude:
+          - feature/*
       
 trigger: none
 pr:
