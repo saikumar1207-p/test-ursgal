@@ -15,7 +15,7 @@ pr:
 resources:
   pipelines:
     - pipeline: mainpipe
-      source: mainpipeline
+      source: mainpipelinetest
       trigger: true
 
 trigger: none
