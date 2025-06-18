@@ -1,32 +1,34 @@
+# Disable direct triggers
 trigger: none
 pr: none
 
+# Pipeline resource from mainpipelinetest
 resources:
   pipelines:
     - pipeline: mainpipe
       source: mainpipelinetest
-      trigger: true
-pool: 
- name: 'default'
+      trigger: true  # acrtest will run when mainpipelinetest completes
+
 stages:
   - stage: Build
     displayName: Build and Push
     jobs:
       - job: BuildAndPushJob
-        pool:
-          vmImage: 'windows-latest'  # Only here inside job
         displayName: Build And Push Job
+        pool:
+          vmImage: 'windows-latest'  # Use Microsoft-hosted agent
         steps:
-          - script: echo "Built and pushed"
+          - script: echo "Build and push logic would go here"
             displayName: Build & Push Step
 
   - stage: Confirmation
+    displayName: Confirm Trigger
     dependsOn: Build
     jobs:
       - job: ConfirmTrigger
+        displayName: Confirm Pipeline Trigger
         pool:
           vmImage: 'windows-latest'
-          name: 'default'
         steps:
-          - script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
-            
+          - script: echo "✅ ACR pipeline (acrtest) triggered after mainpipelinetest completed."
+            displayName: Confirmation Message
