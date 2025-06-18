@@ -27,4 +27,4 @@ stages:
           vmImage: 'windows-latest'
         steps:
           - script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
-            displayName: Confirm ACR Trigger
+            
