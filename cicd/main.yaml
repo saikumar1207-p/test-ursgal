@@ -3,7 +3,7 @@ trigger:
     include:
       - main
       - dev
-      
+
 pr:
   drafts: false
   branches:
@@ -12,16 +12,23 @@ pr:
       - main
       - feature/*
       - fix/*
-      
-pool:
-  name: 'default'
-Stages:
-  - stage: code Quality Check
-      echo "code Quality is Checked"
-  - stage: Ruff
-      echo "Ruff Is Completed"    
-steps:
-  - checkout: self
 
-  - script: echo "Hello, this is a basic script step"
-    displayName: "Run Script"      
+pool:
+  name: default
+
+stages:
+  - stage: CodeQualityCheck
+    jobs:
+      - job: QualityCheck
+        steps:
+          - checkout: self
+          - script: echo "Code quality is checked"
+            displayName: Code Quality Check
+
+  - stage: RuffCheck
+    jobs:
+      - job: RuffLint
+        steps:
+          - checkout: self
+          - script: echo "Ruff is completed"
+            displayName: Ruff Linter
