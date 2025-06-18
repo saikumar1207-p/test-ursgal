@@ -11,4 +11,4 @@ pool:
   name: 'default'
 
 steps:
-- script: echo "Pipeline B triggered after Pipeline A finished".   
+- script: echo "Pipeline B triggered after Pipeline A finished".  
