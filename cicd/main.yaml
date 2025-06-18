@@ -15,7 +15,11 @@ pr:
       
 pool:
   name: 'default'
-
+Stages:
+  - stage: code Quality Check
+      echo "code Quality is Checked"
+  - stage: Ruff
+      echo "Ruff Is Completed"    
 steps:
   - checkout: self
 
