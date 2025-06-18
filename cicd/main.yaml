@@ -1,3 +1,23 @@
-triggers: 
-  - main
-  - dev
+trigger:
+  branches:
+    include:
+      - main
+      - dev
+      - feature/*
+pr:
+  drafts: false
+  branches:
+    include:
+      - dev
+      - main
+      - feature/*
+      - fix/*
+      
+pool:
+  name: 'default'
+
+steps:
+  - checkout: self
+
+  - script: echo "Hello, this is a basic script step"
+    displayName: "Run Script"      
