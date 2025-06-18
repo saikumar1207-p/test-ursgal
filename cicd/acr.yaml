@@ -3,13 +3,28 @@ pr: none
 
 resources:
   pipelines:
-    - pipeline: mainpipe                  # alias to use in this pipeline
-      source: mainpipelinetest           # exact name of the other pipeline in Azure DevOps
-      trigger: true                      # auto-trigger acrtest when mainpipelinetest finishes
+    - pipeline: mainpipe
+      source: mainpipelinetest
+      trigger: true
 
 pool:
   vmImage: 'windows-latest'
   name: 'default'
 
-steps:
-- script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
+stages:
+  - stage: Build
+    displayName: Build and Push
+    jobs:
+      - job: BuildAndPushJob
+        displayName: Build And Push Using template
+        steps:
+          - script: echo "Built and pushed"
+            displayName: Build & Push Step
+
+  - stage: Confirmation
+    dependsOn: Build
+    jobs:
+      - job: ConfirmTrigger
+        steps:
+          - script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
+            displayName: Confirm ACR Trigger
