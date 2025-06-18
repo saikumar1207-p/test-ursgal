@@ -1,25 +1,15 @@
-trigger:
-  branches:
-    include:
-      - main
-      - dev
-      - feature/*
-pr:
-  drafts: false
-  branches:
-    include:
-      - dev
-      - main
-      - feature/*
-      - fix/*
+
 resources:
   pipelines:
     - pipeline: mainpipe
-      source: mainpipeline
-      trigger: none
+      source: mainpipelinetest
+      trigger: 
+        branches:
+        exclude:
+          - feature/*
 pool:
   vmImage: 'windows-latest'
   name: 'default'
 
 steps:
-- script: echo "Pipeline B triggered after Pipeline A finished".      
+- script: echo "Pipeline B triggered after Pipeline A finished".   
