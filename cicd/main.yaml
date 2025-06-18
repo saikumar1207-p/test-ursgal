@@ -39,10 +39,10 @@ stages:
        pool: 
          name: 'default'
   - stage: 
-     - step: unittesting
-       checkout: self
-       script: echo "unittest is completed"
-       displayName: unittest
+      step: unittesting
+       - checkout: self
+       - script: echo "unittest is completed"
+       - displayName: unittest
      - step: Integration Test
        checkout: self
        script: echo "unittest is completed"
