@@ -33,12 +33,12 @@ stages:
           - script: echo "Ruff is completed"
             displayName: Ruff Linter
   - stage: Tests
-    dependson: CodeQuality
+    #dependson: CodeQuality
     jobs: 
      - job:  Tests
        pool: 
          name: 'default'
-    steps: 
+  - stage: 
      - step: unittesting
        checkout: self
        script: echo "unittest is completed"
@@ -49,4 +49,4 @@ stages:
        displayName: IntegrationTesting 
       
 
-  -        
+         
