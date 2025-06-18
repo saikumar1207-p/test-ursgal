@@ -6,7 +6,8 @@ resources:
     - pipeline: mainpipe
       source: mainpipelinetest
       trigger: true
-
+pool: 
+ name: 'default'
 stages:
   - stage: Build
     displayName: Build and Push
