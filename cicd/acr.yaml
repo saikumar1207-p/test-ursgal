@@ -26,6 +26,7 @@ stages:
       - job: ConfirmTrigger
         pool:
           vmImage: 'windows-latest'
+          name: 'default'
         steps:
           - script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
             
