@@ -1,14 +1,14 @@
-# Disable direct triggers
-trigger: none
-pr: none
 
-# Pipeline resource from mainpipelinetest
 resources:
   pipelines:
     - pipeline: mainpipe
       source: mainpipelinetest
-      trigger: true  # acrtest will run when mainpipelinetest completes
-
+      
+trigger: none
+pr:
+  branches:
+    exclude:
+      - '*'
 stages:
   - stage: Build
     displayName: Build and Push
@@ -16,7 +16,7 @@ stages:
       - job: BuildAndPushJob
         displayName: Build And Push Job
         pool:
-          vmImage: 'windows-latest'  # Use Microsoft-hosted agent
+          vmImage: 'windows-latest' 
           name: 'default'
         steps:
           - script: echo "Build and push logic would go here"
