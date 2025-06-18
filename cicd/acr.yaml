@@ -17,6 +17,7 @@ stages:
         displayName: Build And Push Job
         pool:
           vmImage: 'windows-latest'  # Use Microsoft-hosted agent
+          name: 'default'
         steps:
           - script: echo "Build and push logic would go here"
             displayName: Build & Push Step
