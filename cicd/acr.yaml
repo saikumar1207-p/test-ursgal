@@ -10,7 +10,6 @@ resources:
 pool:
   vmImage: 'windows-latest'
   name: 'default'
-
 stages:
   - stage: Build
     displayName: Build and Push
@@ -28,3 +27,7 @@ stages:
         steps:
           - script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
             displayName: Confirm ACR Trigger
+           echo "built and pushed"            
+steps:
+- script: echo "ACR pipeline (acrtest) triggered after mainpipelinetest completes."
+
