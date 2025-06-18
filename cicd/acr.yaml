@@ -16,7 +16,7 @@ resources:
   pipelines:
     - pipeline: mainpipe
       source: mainpipeline
-      trigger: true
+      trigger: none
 pool:
   vmImage: 'windows-latest'
   name: 'default'
