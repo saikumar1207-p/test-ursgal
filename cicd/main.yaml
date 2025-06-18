@@ -5,7 +5,7 @@ trigger:
       - dev
 
 pr:
-  drafts: false
+  
   branches:
     include:
       - dev
