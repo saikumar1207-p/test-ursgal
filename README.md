@@ -1,6 +1,2 @@
-
 ursgal-testing  
-
-
-ursgal testing  
 
