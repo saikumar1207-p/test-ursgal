@@ -18,7 +18,7 @@ resources:
     - repository: templates
       type: github
       name: saikumar1207-p/dso_azure_pipeline_templates
-      ref: main
+      ref: refs/heads/main  
       endpoint: saikumar1207-p
 
 pool:
@@ -48,7 +48,7 @@ stages:
       - job: UnitTests
         steps:
           - checkout: self
-          - template: tests/unittest.yml@templates  # Correct path and repo alias
+          - template: tests/unittests.yml@templates  # Correct path and repo alias
             parameters:
               package: test-ursgal
               testFolder: tests/unittests
