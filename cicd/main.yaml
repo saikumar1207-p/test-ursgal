@@ -48,7 +48,9 @@ stages:
       - job: UnitTests
         steps:
           - checkout: self
-          - template: tests/unittests.yml@templates  # Correct path and repo alias
+          
+          - template: tests/unittests.yaml@templates
+ # Correct path and repo alias
             parameters:
               package: test-ursgal
               testFolder: tests/unittests
