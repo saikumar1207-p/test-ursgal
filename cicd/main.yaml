@@ -18,7 +18,7 @@ resources:
     - repository: templates
       type: github
       name: saikumar1207-p/dso_azure_pipeline_templates
-      ref: main
+      ref: refs/heads/main  
       endpoint: saikumar1207-p
 
 pool:
