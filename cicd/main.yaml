@@ -12,6 +12,7 @@ pr:
       - main
       - feature/*
       - fix/*
+      
 
 pool:
   name: default
